@@ -20,11 +20,6 @@ MEMOENGINE_API Window::Window(IGame* game, int width, int height, std::string ti
 	}
 #endif // _DEBUG
 
-	// Use OpenGL 3.3 Core profile
-	/*glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);*/
-
 	// Create a window
 	id = glfwCreateWindow(this->width, this->height, this->title.c_str(), nullptr, nullptr);
 	if (id == nullptr) 

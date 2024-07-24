@@ -12,3 +12,4 @@
 #include "IMemoGame.h"
 #include "MemoInput.h"
 #include "MemoMath.h"
+#include "MemoGraphic.h"
