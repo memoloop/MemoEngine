@@ -11,7 +11,7 @@ public:
 
 	void init() override
 	{
-		
+		std::cout << "Hello, World" << std::endl;
 	}
 
 	void update() override
