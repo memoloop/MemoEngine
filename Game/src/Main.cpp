@@ -9,14 +9,20 @@ public:
 	Game() {}
 	~Game() {}
 
+	Mouse mouse;
+
 	void init() override
 	{
-		std::cout << "Hello, World" << std::endl;
+
 	}
 
 	void update() override
 	{
-		
+		if (Input::getMouseButtonDown(window, GLFW_MOUSE_BUTTON_LEFT))
+		{
+			std::cout << "X: " << mouse.getPosition(window)->x;
+			std::cout << "Y: " << mouse.getPosition(window)->y << std::endl;
+		}
 	}
 
 	void draw() override

@@ -153,6 +153,7 @@
     <ClInclude Include="IMemoGame.h" />
     <ClInclude Include="MemoEngine.h" />
     <ClInclude Include="MemoInput.h" />
+    <ClInclude Include="MemoMath.h" />
     <ClInclude Include="MemoWindow.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -160,6 +161,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MemoEngine.cpp" />
     <ClCompile Include="MemoInput.cpp" />
+    <ClCompile Include="MemoMath.cpp" />
     <ClCompile Include="MemoWindow.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -6,9 +6,11 @@
 #define MEMOENGINE_API __declspec(dllimport)
 #endif
 
-#include <iostream>
+class Vector2D
+{
+public:
+	int x;
+	int y;
 
-#include "MemoWindow.h"
-#include "IMemoGame.h"
-#include "MemoInput.h"
-#include "MemoMath.h"
+	MEMOENGINE_API Vector2D(int x, int y);
+};
