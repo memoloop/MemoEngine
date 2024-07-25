@@ -2,6 +2,7 @@
 #include "MemoEngine.h"
 
 Window* window;
+Camera2D* camera;
 
 class Game : public IGame
 {
@@ -23,8 +24,6 @@ public:
         2, 3, 0  // second triangle
     };
 
-    Camera2D* camera;
-
     Shader* shader;
     Shape* shape;
     Vector2D* pos;
@@ -32,20 +31,6 @@ public:
 
     void init() override
     {
-        /*model = Matrix(1.0f);
-        model = glm::translate(model, Vector3D(1.0f, 2.0f, 3.0f));
-
-        view = glm::lookAt(Vector3D(0.0f, 0.0f, 5.0f),
-            Vector3D(0.0f, 0.0f, 0.0f),
-            Vector3D(0.0f, 1.0f, 0.0f));
-
-        projection = glm::perspective(glm::radians(45.0f),
-            1.0f,
-            0.1f,
-            100.0f);*/
-
-        camera = new Camera2D(window, 0.0f, 0.0f, 1.0f);
-
         shape = new Shape(vertices, sizeof(vertices), indices, sizeof(indices));
         shader = new Shader("simple");
         pos = new Vector2D(100, 100);
@@ -100,8 +85,10 @@ public:
 int main()
 {
     window = new Window(new Game(), 800, 800, "Hello, MemoEngine");
+    camera = new Camera2D(window, 0.0f, 0.0f, 1.0f);
     window->run();
     delete window;
+    delete camera;
 
     return 0;
 }

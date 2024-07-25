@@ -22,6 +22,8 @@ public:
 	Vector3D pos;
 
 	MEMOENGINE_API Camera2D(Window* window, float x, float y, float z);
+	MEMOENGINE_API ~Camera2D();
+
 	MEMOENGINE_API void update();
 };
 
