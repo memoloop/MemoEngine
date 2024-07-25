@@ -14,7 +14,7 @@
 class Mouse
 {
 public:
-	MEMOENGINE_API void setPosition(Window* window, int x, int y);
+	MEMOENGINE_API void setPosition(Window* window, float x, float y);
 	MEMOENGINE_API Vector2D* getPosition(Window* window);
 };
 

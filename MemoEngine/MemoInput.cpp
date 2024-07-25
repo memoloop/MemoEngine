@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "MemoInput.h"
 
-MEMOENGINE_API void Mouse::setPosition(Window* window, int x, int y)
+MEMOENGINE_API void Mouse::setPosition(Window* window, float x, float y)
 {
 	glfwSetCursorPos(window->getID(), (double) x, (double) y);
 }
@@ -13,7 +13,7 @@ MEMOENGINE_API Vector2D* Mouse::getPosition(Window* window)
 
 	glfwGetCursorPos(window->getID(), &x, &y);
 
-	return new Vector2D(x, y);
+	return new Vector2D((float) x, (float) y);
 }
 
 MEMOENGINE_API bool Input::getKeyDown(Window* window, int key)
