@@ -7,6 +7,8 @@
 #endif
 
 #include <GL/glew.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -27,6 +29,7 @@ public:
 	MEMOENGINE_API void setUniform(std::string name, Vector2D* value);
 	MEMOENGINE_API void setUniform(std::string name, Vector3D* value);
 	MEMOENGINE_API void setUniform(std::string name, Vector4D* value);
+	MEMOENGINE_API void setUniform(std::string name, Matrix value);
 
 private:
 	GLuint program;

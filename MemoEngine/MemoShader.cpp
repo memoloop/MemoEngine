@@ -88,6 +88,12 @@ MEMOENGINE_API void Shader::setUniform(std::string name, Vector4D* value)
 	glUniform4f(location, value->x, value->y, value->z, value->w);
 }
 
+MEMOENGINE_API void Shader::setUniform(std::string name, Matrix value)
+{
+	int location = glGetUniformLocation(program, name.c_str());
+	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
+}
+
 MEMOENGINE_API GLuint Shader::createShader(int type, const GLchar* source)
 {
 	// Create and compile the shader code

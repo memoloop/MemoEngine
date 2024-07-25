@@ -12,16 +12,18 @@ public:
     Mouse mouse;
 
     float vertices[12] = {
-        -0.5f, -0.5f, 0.0f, // bottom left
-        0.5f, -0.5f, 0.0f,  // bottom right
-        0.5f, 0.5f, 0.0f,   // top right
-        -0.5f, 0.5f, 0.0f   // top left
+        0, 100, 0,
+        100, 100, 0,
+        100, 0, 0,
+        0, 0, 0
     };
 
     int indices[6] = {
         0, 1, 2, // first triangle
         2, 3, 0  // second triangle
     };
+
+    Camera2D* camera;
 
     Shader* shader;
     Shape* shape;
@@ -30,9 +32,23 @@ public:
 
     void init() override
     {
+        /*model = Matrix(1.0f);
+        model = glm::translate(model, Vector3D(1.0f, 2.0f, 3.0f));
+
+        view = glm::lookAt(Vector3D(0.0f, 0.0f, 5.0f),
+            Vector3D(0.0f, 0.0f, 0.0f),
+            Vector3D(0.0f, 1.0f, 0.0f));
+
+        projection = glm::perspective(glm::radians(45.0f),
+            1.0f,
+            0.1f,
+            100.0f);*/
+
+        camera = new Camera2D(window, 0.0f, 0.0f, 1.0f);
+
         shape = new Shape(vertices, sizeof(vertices), indices, sizeof(indices));
         shader = new Shader("simple");
-        pos = new Vector2D(0, 0);
+        pos = new Vector2D(100, 100);
         color = new Vector4D(1, 0.5, 0, 0);
     }
 
@@ -45,20 +61,30 @@ public:
         }
 
         if (Input::getKeyDown(window, GLFW_KEY_W))
-            pos->y += 0.01f;
+            pos->y++;
         if (Input::getKeyDown(window, GLFW_KEY_S))
-            pos->y -= 0.01f;
+            pos->y--;
         if (Input::getKeyDown(window, GLFW_KEY_A))
-            pos->x -= 0.01f;
+            pos->x--;
         if (Input::getKeyDown(window, GLFW_KEY_D))
-            pos->x += 0.01f;
+            pos->x++;
+
+        if (Input::getKeyDown(window, GLFW_KEY_LEFT))
+            camera->pos.x--;
+        if (Input::getKeyDown(window, GLFW_KEY_RIGHT))
+            camera->pos.x++;
     }
 
     void draw() override
     {
+        camera->update();
+
         shader->useProgram();
         shader->setUniform("position", pos);
         shader->setUniform("color", color);
+        shader->setUniform("model", camera->model);
+        shader->setUniform("projection", camera->projection);
+        shader->setUniform("view", camera->view);
         shape->draw();
     }
 

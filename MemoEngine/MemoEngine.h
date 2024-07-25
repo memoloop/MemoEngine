@@ -12,3 +12,4 @@
 #include "MemoMath.h"
 #include "MemoGraphic.h"
 #include "MemoShader.h"
+#include "MemoCamera.h"

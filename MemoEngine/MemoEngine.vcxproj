@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\GLFW\include;C:\glew\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\GLFW\include;C:\glew\include;C:\glm;$(IncludePath)</IncludePath>
     <LibraryPath>C:\GLFW\lib-vc2022;C:\glew\lib\Release\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="IMemoGame.h" />
+    <ClInclude Include="MemoCamera.h" />
     <ClInclude Include="MemoEngine.h" />
     <ClInclude Include="MemoGraphic.h" />
     <ClInclude Include="MemoInput.h" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="MemoCamera.cpp" />
     <ClCompile Include="MemoEngine.cpp" />
     <ClCompile Include="MemoGraphic.cpp" />
     <ClCompile Include="MemoInput.cpp" />

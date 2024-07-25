@@ -6,32 +6,11 @@
 #define MEMOENGINE_API __declspec(dllimport)
 #endif
 
-class Vector2D
-{
-public:
-	float x;
-	float y;
+#include <glm/glm.hpp>
 
-	MEMOENGINE_API Vector2D(float x, float y);
-};
+typedef glm::vec1 Vector1D;
+typedef glm::vec2 Vector2D;
+typedef glm::vec3 Vector3D;
+typedef glm::vec4 Vector4D;
 
-class Vector3D
-{
-public:
-	float x;
-	float y;
-	float z;
-
-	MEMOENGINE_API Vector3D(float x, float y, float z);
-};
-
-class Vector4D
-{
-public:
-	float x;
-	float y;
-	float z;
-	float w;
-
-	MEMOENGINE_API Vector4D(float x, float y, float z, float w);
-};
+typedef glm::mat4 Matrix;
