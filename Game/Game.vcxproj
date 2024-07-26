@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\glew\include;C:\GLFW\include;C:\Users\Mario\Desktop\MemoEngine\MemoEngine;C:\glm;$(IncludePath)</IncludePath>
+    <IncludePath>C:\glew\include;C:\GLFW\include;C:\Users\Mario\Desktop\MemoEngine\MemoEngine;C:\glm;C:\stb;$(IncludePath)</IncludePath>
     <LibraryPath>C:\glew\lib\Release\x64;C:\GLFW\lib-vc2022;C:\Users\Mario\Desktop\MemoEngine\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,6 +144,11 @@
   <ItemGroup>
     <None Include="res\shaders\simple.frag" />
     <None Include="res\shaders\simple.vert" />
+    <None Include="res\shaders\texture.frag" />
+    <None Include="res\shaders\texture.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\images\mimmo.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

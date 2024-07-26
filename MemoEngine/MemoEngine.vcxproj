@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\GLFW\include;C:\glew\include;C:\glm;$(IncludePath)</IncludePath>
+    <IncludePath>C:\GLFW\include;C:\glew\include;C:\glm;C:\stb;$(IncludePath)</IncludePath>
     <LibraryPath>C:\GLFW\lib-vc2022;C:\glew\lib\Release\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -157,6 +157,7 @@
     <ClInclude Include="MemoInput.h" />
     <ClInclude Include="MemoMath.h" />
     <ClInclude Include="MemoShader.h" />
+    <ClInclude Include="MemoTexture.h" />
     <ClInclude Include="MemoWindow.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -168,6 +169,7 @@
     <ClCompile Include="MemoInput.cpp" />
     <ClCompile Include="MemoMath.cpp" />
     <ClCompile Include="MemoShader.cpp" />
+    <ClCompile Include="MemoTexture.cpp" />
     <ClCompile Include="MemoWindow.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

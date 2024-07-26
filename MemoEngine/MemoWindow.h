@@ -31,6 +31,8 @@ public:
 
 	MEMOENGINE_API GLFWwindow* getID();
 
+	MEMOENGINE_API void setColor(float red, float green, float blue, float alpha);
+
 private:
 	IGame* game;
 	int width;

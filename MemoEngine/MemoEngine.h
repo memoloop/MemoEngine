@@ -13,3 +13,4 @@
 #include "MemoGraphic.h"
 #include "MemoShader.h"
 #include "MemoCamera.h"
+#include "MemoTexture.h"

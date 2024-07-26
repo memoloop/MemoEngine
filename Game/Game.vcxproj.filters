@@ -22,5 +22,12 @@
   <ItemGroup>
     <None Include="res\shaders\simple.vert" />
     <None Include="res\shaders\simple.frag" />
+    <None Include="res\shaders\texture.vert" />
+    <None Include="res\shaders\texture.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\images\mimmo.png">
+      <Filter>File di risorse</Filter>
+    </Image>
   </ItemGroup>
 </Project>

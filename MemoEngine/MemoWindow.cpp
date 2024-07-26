@@ -56,6 +56,12 @@ MEMOENGINE_API Window::Window(IGame* game, int width, int height, std::string ti
 		std::cout << "You can use OpenGL functions now!" << std::endl;
 	}
 #endif // _DEBUG
+
+	// You can use the texture
+	glEnable(GL_TEXTURE_2D);
+	// Leave the black texture background in alpha channel
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 MEMOENGINE_API Window::~Window()
@@ -113,3 +119,8 @@ MEMOENGINE_API void Window::setTitle(std::string title)
 MEMOENGINE_API std::string Window::getTitle() { return title; }
 
 MEMOENGINE_API GLFWwindow* Window::getID() { return id; }
+
+MEMOENGINE_API void Window::setColor(float red, float green, float blue, float alpha)
+{
+	glClearColor(red, green, blue, alpha);
+}

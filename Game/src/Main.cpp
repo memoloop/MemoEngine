@@ -13,28 +13,39 @@ public:
     Mouse mouse;
 
     float vertices[12] = {
-        0, 100, 0,
-        100, 100, 0,
+        0, 0, 0,
         100, 0, 0,
-        0, 0, 0
+        100, 100, 0,
+        0, 100, 0
+    };
+
+    float textures[8] = {
+        0, 0,
+        1, 0,
+        1, 1,
+        0, 1
     };
 
     int indices[6] = {
         0, 1, 2, // first triangle
-        2, 3, 0  // second triangle
+        2, 3, 0,
     };
 
     Shader* shader;
     Shape* shape;
     Vector2D* pos;
     Vector4D* color;
+    Texture* texture;
 
     void init() override
     {
-        shape = new Shape(vertices, sizeof(vertices), indices, sizeof(indices));
-        shader = new Shader("simple");
-        pos = new Vector2D(100, 100);
+        window->setColor(0.35f, 0.7f, 1.0f, 1.0f);
+
+        shape = new Shape(vertices, sizeof(vertices), textures, sizeof(textures), indices, sizeof(indices));
+        shader = new Shader("texture");
+        pos = new Vector2D(0, 0);
         color = new Vector4D(1, 0.5, 0, 0);
+        texture = new Texture("res/images/mimmo.png");
     }
 
     void update() override
@@ -46,9 +57,9 @@ public:
         }
 
         if (Input::getKeyDown(window, GLFW_KEY_W))
-            pos->y++;
-        if (Input::getKeyDown(window, GLFW_KEY_S))
             pos->y--;
+        if (Input::getKeyDown(window, GLFW_KEY_S))
+            pos->y++;
         if (Input::getKeyDown(window, GLFW_KEY_A))
             pos->x--;
         if (Input::getKeyDown(window, GLFW_KEY_D))
@@ -58,6 +69,10 @@ public:
             camera->pos.x--;
         if (Input::getKeyDown(window, GLFW_KEY_RIGHT))
             camera->pos.x++;
+
+        if (Input::getKeyDown(window, GLFW_KEY_SPACE)) {
+            texture = new Texture("res/images/face.png");
+        }
     }
 
     void draw() override
@@ -65,6 +80,8 @@ public:
         camera->update();
 
         shader->useProgram();
+        texture->bind(0);
+        shader->setUniform("sampler", 0);
         shader->setUniform("position", pos);
         shader->setUniform("color", color);
         shader->setUniform("model", camera->model);
@@ -79,6 +96,7 @@ public:
         delete shader;
         delete pos;
         delete color;
+        delete texture;
     }
 };
 
