@@ -27,7 +27,7 @@ public:
     };
 
     int indices[6] = {
-        0, 1, 2, // first triangle
+        0, 1, 2,
         2, 3, 0,
     };
 
@@ -44,7 +44,7 @@ public:
         shape = new Shape(vertices, sizeof(vertices), textures, sizeof(textures), indices, sizeof(indices));
         shader = new Shader("texture");
         pos = new Vector2D(0, 0);
-        color = new Vector4D(1, 0.5, 0, 0);
+        color = new Vector4D(1, 0.5, 0, 1.0);
         texture = new Texture("res/images/mimmo.png");
     }
 
@@ -70,7 +70,8 @@ public:
         if (Input::getKeyDown(window, GLFW_KEY_RIGHT))
             camera->pos.x++;
 
-        if (Input::getKeyDown(window, GLFW_KEY_SPACE)) {
+        if (Input::getKeyDown(window, GLFW_KEY_SPACE)) 
+        {
             texture = new Texture("res/images/face.png");
         }
     }

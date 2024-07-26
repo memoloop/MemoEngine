@@ -12,6 +12,7 @@ class Shape
 {
 public:
 	MEMOENGINE_API Shape(float vertices[], size_t verticesSize, float textures[], size_t texturesSize, int indices[], size_t indicesSize);
+	MEMOENGINE_API Shape(float vertices[], size_t verticesSize, int indices[], size_t indicesSize);
 	MEMOENGINE_API ~Shape();
 
 	MEMOENGINE_API void draw();
