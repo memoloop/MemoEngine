@@ -15,7 +15,6 @@ public:
 	MEMOENGINE_API Texture(std::string filename);
 	MEMOENGINE_API ~Texture();
 
-	MEMOENGINE_API void setNew(std::string filename);
 	MEMOENGINE_API void bind(int slot) const;
 
 private:

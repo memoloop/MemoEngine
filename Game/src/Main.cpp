@@ -19,11 +19,14 @@ public:
         0, 100, 0
     };
 
+    float posX = 0;
+    float width = 0.5f;
+
     float textures[8] = {
-        0, 0,
-        1, 0,
-        1, 1,
-        0, 1
+        posX, 0,
+        posX+width, 0,
+        posX+width, 1,
+        posX, 1
     };
 
     int indices[6] = {

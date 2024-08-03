@@ -4,14 +4,20 @@
 
 MEMOENGINE_API Texture::Texture(std::string filename)
 {
-	setNew(filename);
+	// Load image file
+	pixels = stbi_load(filename.c_str(), &width, &height, &channels, 4);
+	if (pixels == nullptr)
+	{
+		std::cerr << "Unable to load image: " << stbi_failure_reason() << std::endl;
+		std::exit(-1);
+	}
 
 	// Create OpenGL texture
 	glGenTextures(1, &id);
 	glBindTexture(GL_TEXTURE_2D, id);
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
@@ -28,17 +34,6 @@ MEMOENGINE_API Texture::~Texture()
 {
 	// Delete texture id
 	glDeleteTextures(1, &id);
-}
-
-MEMOENGINE_API void Texture::setNew(std::string filename)
-{
-	// Load image file
-	pixels = stbi_load(filename.c_str(), &width, &height, &channels, 4);
-	if (pixels == nullptr)
-	{
-		std::cerr << "Unable to load image: " << stbi_failure_reason() << std::endl;
-		std::exit(-1);
-	}
 }
 
 MEMOENGINE_API void Texture::bind(int slot) const
