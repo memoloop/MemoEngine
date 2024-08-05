@@ -26,7 +26,7 @@
     <None Include="res\shaders\texture.frag" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\images\mimmo.png">
+    <Image Include="res\images\image.png">
       <Filter>File di risorse</Filter>
     </Image>
   </ItemGroup>

@@ -153,6 +153,7 @@
     <ClInclude Include="IMemoGame.h" />
     <ClInclude Include="MemoCamera.h" />
     <ClInclude Include="MemoEngine.h" />
+    <ClInclude Include="MemoGameObject.h" />
     <ClInclude Include="MemoGraphic.h" />
     <ClInclude Include="MemoInput.h" />
     <ClInclude Include="MemoMath.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MemoCamera.cpp" />
     <ClCompile Include="MemoEngine.cpp" />
+    <ClCompile Include="MemoGameObject.cpp" />
     <ClCompile Include="MemoGraphic.cpp" />
     <ClCompile Include="MemoInput.cpp" />
     <ClCompile Include="MemoMath.cpp" />

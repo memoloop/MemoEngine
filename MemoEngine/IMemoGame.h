@@ -15,4 +15,3 @@ public:
 	MEMOENGINE_API virtual void cleanUp() = 0;
 	MEMOENGINE_API virtual ~IGame() {}
 };
-

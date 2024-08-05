@@ -48,6 +48,9 @@
     <ClInclude Include="MemoTexture.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="MemoGameObject.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -78,6 +81,9 @@
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="MemoTexture.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoGameObject.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>

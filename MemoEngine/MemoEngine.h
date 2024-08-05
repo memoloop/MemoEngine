@@ -14,3 +14,4 @@
 #include "MemoShader.h"
 #include "MemoCamera.h"
 #include "MemoTexture.h"
+#include "MemoGameObject.h"

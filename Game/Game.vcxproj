@@ -148,7 +148,7 @@
     <None Include="res\shaders\texture.vert" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\images\mimmo.png" />
+    <Image Include="res\images\image.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

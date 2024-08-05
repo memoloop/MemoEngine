@@ -34,21 +34,16 @@ public:
         2, 3, 0,
     };
 
-    Shader* shader;
-    Shape* shape;
-    Vector2D* pos;
-    Vector4D* color;
-    Texture* texture;
+    Sprite* sprite;
+    TexturedSprite* sprite2;
 
     void init() override
     {
         window->setColor(0.35f, 0.7f, 1.0f, 1.0f);
 
-        shape = new Shape(vertices, sizeof(vertices), textures, sizeof(textures), indices, sizeof(indices));
-        shader = new Shader("texture");
-        pos = new Vector2D(0, 0);
-        color = new Vector4D(1, 0.5, 0, 1.0);
-        texture = new Texture("res/images/mimmo.png");
+        sprite = new Sprite(camera, 0, 0, 100, 100);
+        sprite->color = { 1.0f, 1.0f, 0.02f, 1.0f };
+        sprite2 = new TexturedSprite(camera, 150, 300, 100, 100, new Texture("res/images/image.png"));
     }
 
     void update() override
@@ -58,49 +53,20 @@ public:
             std::cout << "X: " << mouse.getPosition(window)->x;
             std::cout << "Y: " << mouse.getPosition(window)->y << std::endl;
         }
-
-        if (Input::getKeyDown(window, GLFW_KEY_W))
-            pos->y--;
-        if (Input::getKeyDown(window, GLFW_KEY_S))
-            pos->y++;
-        if (Input::getKeyDown(window, GLFW_KEY_A))
-            pos->x--;
-        if (Input::getKeyDown(window, GLFW_KEY_D))
-            pos->x++;
-
-        if (Input::getKeyDown(window, GLFW_KEY_LEFT))
-            camera->pos.x--;
-        if (Input::getKeyDown(window, GLFW_KEY_RIGHT))
-            camera->pos.x++;
-
-        if (Input::getKeyDown(window, GLFW_KEY_SPACE)) 
-        {
-            texture = new Texture("res/images/face.png");
-        }
     }
 
     void draw() override
     {
         camera->update();
 
-        shader->useProgram();
-        texture->bind(0);
-        shader->setUniform("sampler", 0);
-        shader->setUniform("position", pos);
-        shader->setUniform("color", color);
-        shader->setUniform("model", camera->model);
-        shader->setUniform("projection", camera->projection);
-        shader->setUniform("view", camera->view);
-        shape->draw();
+        sprite->draw();
+        sprite2->draw();
     }
 
     void cleanUp() override
     {
-        delete shape;
-        delete shader;
-        delete pos;
-        delete color;
-        delete texture;
+        delete sprite;
+        delete sprite2;
     }
 };
 

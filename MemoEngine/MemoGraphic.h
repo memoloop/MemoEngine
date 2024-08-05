@@ -27,3 +27,9 @@ private:
 	GLuint vboTexCoord;
 	GLuint ebo;
 };
+
+struct RGBAColor 
+{
+	// The value are between 0.0f to 1.0f
+	float red, green, blue, alpha;
+};
