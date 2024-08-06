@@ -12,38 +12,19 @@ public:
 
     Mouse mouse;
 
-    float vertices[12] = {
-        0, 0, 0,
-        100, 0, 0,
-        100, 100, 0,
-        0, 100, 0
-    };
-
-    float posX = 0;
-    float width = 0.5f;
-
-    float textures[8] = {
-        posX, 0,
-        posX+width, 0,
-        posX+width, 1,
-        posX, 1
-    };
-
-    int indices[6] = {
-        0, 1, 2,
-        2, 3, 0,
-    };
-
     Sprite* sprite;
     TexturedSprite* sprite2;
+    std::vector<Texture*> frames;
 
     void init() override
     {
         window->setColor(0.35f, 0.7f, 1.0f, 1.0f);
 
+        frames = Spritesheet::create("res/images/image.png", 2, 2);
+
         sprite = new Sprite(camera, 0, 0, 100, 100);
         sprite->color = { 1.0f, 1.0f, 0.02f, 1.0f };
-        sprite2 = new TexturedSprite(camera, 150, 300, 100, 100, new Texture("res/images/image.png"));
+        sprite2 = new TexturedSprite(camera, 150, 300, 100, 100, frames[2]);
     }
 
     void update() override
@@ -67,6 +48,8 @@ public:
     {
         delete sprite;
         delete sprite2;
+
+        frames.clear();
     }
 };
 
