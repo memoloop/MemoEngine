@@ -24,7 +24,7 @@ public:
 
         sprite = new Sprite(camera, 0, 0, 100, 100);
         sprite->color = { 1.0f, 1.0f, 0.02f, 1.0f };
-        sprite2 = new TexturedSprite(camera, 150, 300, 100, 100, frames[2]);
+        sprite2 = new TexturedSprite(camera, 150, 300, 100, 100, frames[0]);
     }
 
     void update() override

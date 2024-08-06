@@ -34,6 +34,8 @@ MEMOENGINE_API Texture::Texture(std::string filename, Rect rect)
 {
 	x = rect.x;
 	y = rect.y;
+	width = rect.width;
+	height = rect.height;
 
 	// Load image file
 	pixels = stbi_load(filename.c_str(), &imageWidth, &imageHeight, &channels, 4);
@@ -100,6 +102,7 @@ MEMOENGINE_API std::vector<Texture*> Spritesheet::create(std::string filename, i
 			};
 
 			spritesheet.push_back(new Texture(filename, rect));
+			std::cout << "Width: " << spriteWidth << " | Height: " << spriteHeight << std::endl;
 		}
 	}
 
