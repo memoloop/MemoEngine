@@ -16,14 +16,22 @@ public:
     TexturedSprite* sprite2;
     std::vector<Texture*> frames;
 
+    Audio* audio;
+    bool playing;
+
     void init() override
     {
+        AudioManager::init();
+
         window->setColor(0.35f, 0.7f, 1.0f, 1.0f);
 
         frames = Spritesheet::create("res/images/image.png", 2, 2);
 
+        audio = new Audio("res/audio/Inst.ogg");
+        playing = audio->play();
+
         sprite = new Sprite(camera, 0, 0, 100, 100);
-        sprite->color = { 1.0f, 1.0f, 0.02f, 1.0f };
+        sprite->color = { 255, 255, 0, 255 };
         sprite2 = new TexturedSprite(camera, 150, 300, 100, 100, frames[0]);
     }
 
@@ -34,6 +42,11 @@ public:
             std::cout << "X: " << mouse.getPosition(window)->x;
             std::cout << "Y: " << mouse.getPosition(window)->y << std::endl;
         }
+
+        if (Input::getKeyDown(window, GLFW_KEY_SPACE))
+        {
+            playing = audio->play();
+        } 
     }
 
     void draw() override
@@ -49,7 +62,10 @@ public:
         delete sprite;
         delete sprite2;
 
+        delete audio;
+
         frames.clear();
+        AudioManager::destroy();
     }
 };
 

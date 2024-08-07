@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\GLFW\include;C:\glew\include;C:\glm;C:\stb;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\GLFW\lib-vc2022;C:\glew\lib\Release\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\GLFW\include;C:\glew\include;C:\glm;C:\stb;C:\libsndfile\include;C:\openal-soft\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\GLFW\lib-vc2022;C:\glew\lib\Release\x64;C:\libsndfile\lib;C:\openal-soft\libs\Win64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\GLFW\include;C:\glew\include;$(IncludePath)</IncludePath>
@@ -125,7 +125,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>glfw3dll.lib;glew32.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3dll.lib;glew32.lib;opengl32.lib;glu32.lib;OpenAL32.lib;sndfile.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="IMemoGame.h" />
+    <ClInclude Include="MemoAudioManager.h" />
     <ClInclude Include="MemoCamera.h" />
     <ClInclude Include="MemoEngine.h" />
     <ClInclude Include="MemoGameObject.h" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="MemoAudioManager.cpp" />
     <ClCompile Include="MemoCamera.cpp" />
     <ClCompile Include="MemoEngine.cpp" />
     <ClCompile Include="MemoGameObject.cpp" />

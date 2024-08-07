@@ -42,7 +42,7 @@ MEMOENGINE_API void Sprite::draw()
 	shader->useProgram();
 	shader->setUniform("position", new Vector2D(x, y));
 	shader->setUniform("scale", new Vector2D(1/scaleX*width, 1/scaleY*height));
-	shader->setUniform("color", new Vector4D(color.red, color.green, color.blue, color.alpha));
+	shader->setUniform("color", new Vector4D((float)(1 / 255.0f * color.red), (float)(1 / 255.0f * color.green), (float)(1 / 255.0f * color.blue), (float)(1 / 255.0f * color.alpha)));
 	shader->setUniform("model", camera->model);
 	shader->setUniform("projection", camera->projection);
 	shader->setUniform("view", camera->view);
@@ -93,7 +93,7 @@ MEMOENGINE_API void TexturedSprite::draw()
 	shader->setUniform("scale", new Vector2D(1 / scaleX * width, 1 / scaleY * height));
 	shader->setUniform("tex_position", new Vector2D(texture->x, texture->y));
 	shader->setUniform("tex_scale", new Vector2D(texture->width, texture->height));
-	shader->setUniform("color", new Vector4D(color.red, color.green, color.blue, color.alpha));
+	shader->setUniform("color", new Vector4D((float)(1 / 255.0f * color.red), (float)(1 / 255.0f * color.green), (float)(1 / 255.0f * color.blue), (float)(1 / 255.0f * color.alpha)));
 	shader->setUniform("model", camera->model);
 	shader->setUniform("projection", camera->projection);
 	shader->setUniform("view", camera->view);

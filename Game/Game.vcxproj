@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\glew\include;C:\GLFW\include;C:\Users\Mario\Desktop\MemoEngine\MemoEngine;C:\glm;C:\stb;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\glew\lib\Release\x64;C:\GLFW\lib-vc2022;C:\Users\Mario\Desktop\MemoEngine\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\glew\include;C:\GLFW\include;C:\Users\Mario\Desktop\MemoEngine\MemoEngine;C:\glm;C:\stb;C:\openal-soft\include;C:\libsndfile\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\glew\lib\Release\x64;C:\GLFW\lib-vc2022;C:\Users\Mario\Desktop\MemoEngine\x64\Debug;C:\libsndfile\lib;C:\openal-soft\libs\Win64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\glew\include;C:\GLFW\include;C:\Users\Mario\Desktop\MemoEngine\MemoEngine;$(IncludePath)</IncludePath>
@@ -117,7 +117,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MemoEngine.lib;glfw3dll.lib;glew32.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MemoEngine.lib;glfw3dll.lib;glew32.lib;opengl32.lib;glu32.lib;OpenAL32.lib;sndfile.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

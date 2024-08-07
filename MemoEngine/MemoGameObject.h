@@ -21,7 +21,7 @@ public:
 	float width;
 	float height;
 
-	RGBAColor color = { 1, 1, 1, 1 };
+	RGBAColor color = { 255, 255, 255, 255 };
 
 	MEMOENGINE_API Sprite(Camera2D* camera, float x, float y, float width, float height);
 	MEMOENGINE_API virtual ~Sprite();
