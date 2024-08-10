@@ -90,8 +90,8 @@ MEMOENGINE_API Audio::~Audio()
 
 MEMOENGINE_API bool Audio::play()
 {
+	alSourcei(source, AL_BUFFER, buffer);
 	alSourcePlay(source);
-
 	ALint state;
 	alGetSourcei(source, AL_SOURCE_STATE, &state);
 	if (state == AL_PLAYING)
@@ -102,6 +102,17 @@ MEMOENGINE_API bool Audio::play()
 
 MEMOENGINE_API void Audio::stop()
 {
-	alSourceStop(source);
-	// Work in progress...
+	isStopped = true;
+	if(isStopped)
+		alSourceStop(source);
+}
+
+MEMOENGINE_API void Audio::pause() 
+{
+	alSourcePause(source);
+}
+
+MEMOENGINE_API void Audio::resume()
+{
+	alSourcePlay(source);
 }

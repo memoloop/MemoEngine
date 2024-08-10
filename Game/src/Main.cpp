@@ -1,4 +1,6 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include "MemoEngine.h"
 
 Window* window;
@@ -33,6 +35,11 @@ public:
         sprite = new Sprite(camera, 0, 0, 100, 100);
         sprite->color = { 255, 255, 0, 255 };
         sprite2 = new TexturedSprite(camera, 150, 300, 100, 100, frames[0]);
+
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        audio->pause();
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        audio->resume();
     }
 
     void update() override
@@ -42,11 +49,6 @@ public:
             std::cout << "X: " << mouse.getPosition(window)->x;
             std::cout << "Y: " << mouse.getPosition(window)->y << std::endl;
         }
-
-        if (Input::getKeyDown(window, GLFW_KEY_SPACE))
-        {
-            playing = audio->play();
-        } 
     }
 
     void draw() override

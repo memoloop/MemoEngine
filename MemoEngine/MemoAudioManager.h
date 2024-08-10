@@ -29,6 +29,8 @@ public:
 
 	MEMOENGINE_API bool play();
 	MEMOENGINE_API void stop();
+	MEMOENGINE_API void pause();
+	MEMOENGINE_API void resume();
 
 private:
 	std::vector<short> audioBuffer; // contains file audio
@@ -36,4 +38,6 @@ private:
 	ALsizei freq;
 	ALuint buffer; // it's openal buffer
 	ALuint source;
+
+	bool isStopped = false;
 };
